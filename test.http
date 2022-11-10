@@ -1,0 +1,9 @@
+post http://localhost:8080/email
+Content-Type: application/json
+
+{
+	"to": "subham.mohapatra@highradius.com",
+	"cc": "sssubham90@gmail.com",
+	"subject": "Changing Content Per Recipient",
+	"body": "Hey Whats up my friend. Check the image id in show original"
+}
