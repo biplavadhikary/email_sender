@@ -53,7 +53,31 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
-    </dependencies>
+		<dependency>
+			<groupId>com.microsoft.graph</groupId>
+			<artifactId>microsoft-graph</artifactId>
+			<version>5.40.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>8.4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.azure</groupId>
+			<artifactId>azure-identity</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.microsoft.graph</groupId>
+			<artifactId>microsoft-graph-auth</artifactId>
+			<version>0.3.0</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>

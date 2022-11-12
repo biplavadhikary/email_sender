@@ -1,7 +1,8 @@
 package com.example.email.controller;
 
-import com.example.email.services.EmailService;
+import com.example.email.services.IMailSender;
 
+import com.example.email.services.JavaMailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class Emailer {
+public class JavaEmailer {
 
 	@Autowired
-	private EmailService emailService;
+	private JavaMailSender javaMailSender;
 	
 	@GetMapping(path = "/email", produces = {"application/json"})
 	public Map<String, Object> email(@RequestBody(required = false) Map<String, Object> payload) {
@@ -28,7 +29,7 @@ public class Emailer {
 
 		String fromAddress = "abiplov@gmail.com";
 
-		Map<String, Object> responseMap = emailService.sendMessage(fromAddress, toAddress, ccAddress, subject, body);
+		Map<String, Object> responseMap = javaMailSender.sendMessage(fromAddress, toAddress, ccAddress, subject, body);
 
 		return responseMap;
 	}
