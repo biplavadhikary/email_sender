@@ -1,26 +1,21 @@
 package com.example.email.services;
 
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import com.azure.identity.UsernamePasswordCredential;
-import com.azure.identity.UsernamePasswordCredentialBuilder;
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
 import com.microsoft.graph.auth.confidentialClient.ClientCredentialProvider;
 import com.microsoft.graph.auth.enums.NationalCloud;
 import com.microsoft.graph.authentication.IAuthenticationProvider;
+import com.microsoft.graph.authentication.TokenCredentialAuthProvider;
 import com.microsoft.graph.http.CustomRequest;
-import com.microsoft.graph.httpcore.ICoreAuthenticationProvider;
-import com.microsoft.graph.models.extensions.*;
-import com.microsoft.graph.models.generated.BodyType;
+import com.microsoft.graph.models.*;
 import com.microsoft.graph.options.HeaderOption;
-import com.microsoft.graph.requests.extensions.GraphServiceClient;
-import com.microsoft.graph.requests.extensions.IUserSendMailRequest;
-import com.microsoft.graph.requests.extensions.IUserSendMailRequestBuilder;
+import com.microsoft.graph.requests.GraphServiceClient;
+import com.microsoft.graph.requests.UserSendMailRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
@@ -39,35 +34,32 @@ public class O365MailSender implements IMailSender {
     @Autowired
     private org.springframework.mail.javamail.JavaMailSender javaMailSender;
     private IAuthenticationProvider provider;
-    private IGraphServiceClient client;
+    private GraphServiceClient client;
 
     public void initializeProvider() {
         String clientId = "";
         List<String> scopes = Arrays.asList("");
         String clientSecret = "";
         String tenantId = "";
-        NationalCloud nationalCloud = NationalCloud.Global;
 
-        String userName = "";
-        String password = "";
-
-        ClientCredentialProvider provider = new ClientCredentialProvider(clientId, scopes, clientSecret,
-                tenantId, nationalCloud);
-
-//        final UsernamePasswordCredential usernamePasswordCredential = new UsernamePasswordCredentialBuilder()
-//                .clientId(clientId)
-//                .username(userName)
-//                .password(password)
-//                .build();
-
-//        final TokenCredentialAuthProvider tokenCredentialAuthProvider = new TokenCredentialAuthProvider(scopes, usernamePasswordCredential);
+//        NationalCloud nationalCloud = NationalCloud.Global;
 //
+//        String userName = "testuser2@highradiusdmz.onmicrosoft.com";
+//        String password = "Aut2dot0_testing2";
 
-        this.provider = provider;
+        final ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+                .clientId(clientId)
+                .clientSecret(clientSecret)
+                .tenantId(tenantId)
+                .build();
+
+        final TokenCredentialAuthProvider tokenCredentialAuthProvider = new TokenCredentialAuthProvider(scopes, clientSecretCredential);
+
+        this.provider = tokenCredentialAuthProvider;
     }
 
     public void buildClient() {
-        IGraphServiceClient client = GraphServiceClient
+        GraphServiceClient client = GraphServiceClient
                 .builder()
                 .authenticationProvider(this.provider)
                 .buildClient();
@@ -76,6 +68,7 @@ public class O365MailSender implements IMailSender {
     }
 
     public O365MailSender() {
+        LOGGER.info("Constructor");
         this.initializeProvider();
         this.buildClient();
     }
@@ -113,7 +106,13 @@ public class O365MailSender implements IMailSender {
 
             LOGGER.info("Building the message");
             Message message = this.buildMessage(from, to, cc, subject, body);
-            IUserSendMailRequest sendMailRequest = client.users(from).sendMail(message, true).buildRequest();
+            UserSendMailRequest sendMailRequest = client.users(from).sendMail(
+                    UserSendMailParameterSet
+                    .newBuilder()
+                    .withMessage(message)
+                    .withSaveToSentItems(true)
+                    .build()
+            ).buildRequest();
 
             LOGGER.info(String.format("Sending the email as %s", from));
             sendMailRequest.post();
