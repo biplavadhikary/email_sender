@@ -20,7 +20,7 @@ public class O365Emailer {
 
         Map<String, Object> emailDetails = payload == null? new HashMap<>() : payload;
 
-        String toAddress = emailDetails.getOrDefault("to", "testuser2@highradiusdmz.onmicrosoft.com").toString();
+        String toAddress = emailDetails.getOrDefault("to", "testuser2@highradiusdmz.onmicrosoft.com,biplav.adhikary@highradius.com").toString();
         String ccAddress = emailDetails.getOrDefault("cc", "").toString();
         String subject = emailDetails.getOrDefault("subject", "Test Subject").toString();
         String body = emailDetails.getOrDefault("body", "Test Body").toString();
