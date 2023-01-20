@@ -1,0 +1,172 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "originator": "848ef05c-dbfb-4534-a091-f92066f89760",
+  "hideOriginalBody": true,
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Container",
+      "id": "34eadec9-ac74-5c77-3e62-875a8b9c5f3c",
+      "padding": "Small",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "id": "fedae9ca-c2d5-5dd2-4a59-176681872822",
+          "columns": [
+            {
+              "type": "Column",
+              "id": "e6d9a897-f9e4-067b-52da-c9900c83e886",
+              "padding": "None",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "id": "0f1bd522-ef75-3f9f-14c4-4ef9e234721f",
+                  "url": "https://amdesigner.azurewebsites.net/samples/assets/PlaceHolder_Person.png",
+                  "size": "Small",
+                  "altText": "Contoso Group Avatar"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "id": "b48b0ab2-4c13-5b59-88eb-2fc97c943d39",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "id": "2d13ea41-2866-7130-44de-4a18d3093cf7",
+                  "text": "Payment reminder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "id": "05758164-9a44-9484-5ee6-c91f248993d5",
+                  "text": "Sent by Collector",
+                  "wrap": true,
+                  "spacing": "None",
+                  "color": "Light",
+                  "size": "Small"
+                }
+              ],
+              "verticalContentAlignment": "Center"
+            }
+          ],
+          "padding": "None"
+        }
+      ],
+      "spacing": "None",
+      "style": "emphasis"
+    },
+    {
+      "type": "Container",
+      "id": "0bdaded9-7b2d-fb8b-c298-ac819fd31288",
+      "padding": "Default",
+      "spacing": "None",
+      "items": [
+        {
+          "type": "Container",
+          "id": "47295af6-a6b8-fd4f-f90f-018d01f8e130",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "P2P Created",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "ExpenseDetailsWrapper",
+                  "ExpenseDetailsChevronUp",
+                  "P2P-Invoice-List"
+                ],
+                "id": "ExpandExpenseDetails",
+                "title": "Expand Expense Details"
+              }
+            }
+          ],
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "id": "8924f212-090b-bd67-da0e-0e53b3986be1",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "Dispute Created",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "ExpenseDetailsWrapper",
+                  "ExpenseDetailsChevronUp",
+                  "P2P-Invoice-List"
+                ],
+                "id": "ExpandExpenseDetails",
+                "title": "Expand Expense Details"
+              }
+            }
+          ],
+          "separator": true
+        }
+      ],
+      "separator": true
+    }
+  ],
+  "padding": "None",
+  "@type": "AdaptiveCard",
+  "@context": "http://schema.org/extensions"
+}

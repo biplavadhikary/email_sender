@@ -1,0 +1,715 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "originator": "848ef05c-dbfb-4534-a091-f92066f89760",
+  "hideOriginalBody": true,
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Container",
+      "id": "34eadec9-ac74-5c77-3e62-875a8b9c5f3c",
+      "padding": "Small",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "id": "fedae9ca-c2d5-5dd2-4a59-176681872822",
+          "columns": [
+            {
+              "type": "Column",
+              "id": "e6d9a897-f9e4-067b-52da-c9900c83e886",
+              "padding": "None",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "id": "0f1bd522-ef75-3f9f-14c4-4ef9e234721f",
+                  "url": "https://amdesigner.azurewebsites.net/samples/assets/PlaceHolder_Person.png",
+                  "size": "Small",
+                  "altText": "Contoso Group Avatar"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "id": "b48b0ab2-4c13-5b59-88eb-2fc97c943d39",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "id": "2d13ea41-2866-7130-44de-4a18d3093cf7",
+                  "text": "Payment reminder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "id": "05758164-9a44-9484-5ee6-c91f248993d5",
+                  "text": "Sent by Collector",
+                  "wrap": true,
+                  "spacing": "None",
+                  "color": "Light",
+                  "size": "Small"
+                }
+              ],
+              "verticalContentAlignment": "Center"
+            }
+          ],
+          "padding": "None"
+        }
+      ],
+      "spacing": "None",
+      "style": "emphasis"
+    },
+    {
+      "type": "Container",
+      "id": "0bdaded9-7b2d-fb8b-c298-ac819fd31288",
+      "padding": "Default",
+      "spacing": "None",
+      "items": [
+        {
+          "type": "Container",
+          "id": "47295af6-a6b8-fd4f-f90f-018d01f8e130",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "P2P Created",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "ExpenseDetailsWrapper",
+                  "ExpenseDetailsChevronUp",
+                  "P2P-Invoice-List"
+                ],
+                "id": "ExpandExpenseDetails",
+                "title": "Expand Expense Details"
+              }
+            }
+          ],
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "id": "8924f212-090b-bd67-da0e-0e53b3986be1",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "Create Dispute",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "16aa18d8-42f4-1442-0f2b-5e025d985d62",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "selectAction": {
+                            "type": "Action.ToggleVisibility",
+                            "id": "ExpandExpenseDetails",
+                            "title": "Expand Expense Details",
+                            "targetElements": [
+                              "ExpenseDetailsWrapper",
+                              "ExpenseDetailsChevronUp",
+                              "Dispute-Invoice-List"
+                            ]
+                          },
+                          "url": "https://amdesigner.azurewebsites.net/samples/assets/Down.png",
+                          "width": "20px",
+                          "altText": "Expand",
+                          "height": "20px"
+                        }
+                      ],
+                      "width": "auto",
+                      "padding": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "2831eca6-e72b-8536-be34-830cea29bfc6",
+                      "isVisible": false,
+                      "items": [
+                        {
+                          "type": "Image",
+                          "selectAction": {
+                            "type": "Action.ToggleVisibility",
+                            "id": "CollapseExpenseDetails",
+                            "title": "Collapse Expense Details",
+                            "targetElements": [
+                              "ExpenseDetailsWrapper",
+                              "ExpenseDetailsChevronUp",
+                              "Dispute-Invoice-List"
+                            ]
+                          },
+                          "url": "https://amdesigner.azurewebsites.net/samples/assets/Up.png",
+                          "width": "20px",
+                          "altText": "Collapse",
+                          "height": "20px"
+                        }
+                      ],
+                      "width": "auto",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "ExpenseDetailsWrapper",
+                  "ExpenseDetailsChevronUp",
+                  "P2P-Invoice-List"
+                ],
+                "id": "ExpandExpenseDetails",
+                "title": "Expand Expense Details"
+              }
+            },
+            {
+              "type": "Container",
+              "id": "Dispute-Invoice-List",
+              "padding": "None",
+              "items": [
+                {
+                  "type": "Container",
+                  "id": "c222bf32-dd00-5ce5-a363-ea306450433b",
+                  "padding": "None",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "id": "95403377-9b00-f3ae-2110-3e82ba1eb152",
+                      "text": "Selected Invoices 0 of 33",
+                      "wrap": true,
+                      "spacing": "Medium",
+                      "isSubtle": true,
+                      "horizontalAlignment": "Center"
+                    }
+                  ]
+                },
+                {
+                  "type": "ColumnSet",
+                  "id": "04b4495a-b30c-5cb8-42eb-fb644c372c9e",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "3e5a2e29-14e3-0f10-1561-5ff0e040178c",
+                      "padding": {
+                        "top": "Small",
+                        "bottom": "None",
+                        "left": "None",
+                        "right": "None"
+                      },
+                      "width": "auto",
+                      "items": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "288c3ce9-198f-5c61-bcb3-27b2c51b9f5b",
+                          "title": " ",
+                          "value": "false",
+                          "wrap": false
+                        }
+                      ],
+                      "spacing": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "85c3ec77-b19d-d803-7cfa-96e203dc9b97",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "03a3979c-804b-d277-2100-962d038051a9",
+                          "text": "Invoice Number",
+                          "wrap": true,
+                          "weight": "Bolder"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "5c4a3b7a-c6b3-1ece-619d-549cddb57e58",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "a194e7dd-ea96-fe59-5c05-5a9cae4fbc56",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "weight": "Bolder"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "064f8e68-4367-f939-2660-a9b9ddba83b1",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "9d2a269e-dc67-dde4-5847-e2e9c9724566",
+                          "text": "Days Past Due",
+                          "wrap": true,
+                          "weight": "Bolder"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "f05a7801-d455-7047-2a9c-ef5825171966",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "f82273ab-e261-bc19-b472-74352abb1057",
+                          "text": "Amount",
+                          "wrap": true,
+                          "weight": "Bolder"
+                        }
+                      ]
+                    }
+                  ],
+                  "padding": "Medium"
+                },
+                {
+                  "type": "ColumnSet",
+                  "id": "8f1018ab-022e-0e97-57cd-9a9a2e5f98f7",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "bfc13a2c-3f9a-5f34-b3c7-c8b33f2eaa4e",
+                      "padding": {
+                        "top": "Small",
+                        "bottom": "None",
+                        "left": "None",
+                        "right": "None"
+                      },
+                      "width": "auto",
+                      "items": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "111ff8d9-22c9-a385-1d71-a3a916d11281",
+                          "title": " ",
+                          "value": "false",
+                          "wrap": false
+                        }
+                      ],
+                      "spacing": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "dd77d454-d2ff-5615-0b69-bfe43e678af5",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "39e79d8c-3c91-9721-12cb-c181e4a028f6",
+                          "text": "12333828",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "b859dba5-6bb6-2f0d-8536-543175bc2435",
+                          "text": "287372812",
+                          "wrap": true,
+                          "size": "Small",
+                          "color": "Light",
+                          "spacing": "None"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "21db5bcb-3ffa-6a77-e241-057fa0a1f508",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "bdad39d1-f955-dbae-0e07-a4d889a7ea69",
+                          "text": "$182,482",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "0c1ce8be-8c7f-a797-61dc-6d791062b8a6",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "569b21af-639a-d581-1fba-ce2fdac93922",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "a21dd00b-b292-894e-485d-c77007436614",
+                          "text": "6 Days",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "e0063eee-864e-1d34-a8cb-52696abfc777",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "929c8b02-a3e4-fa88-038e-489d0e382e52",
+                          "text": "287372812",
+                          "wrap": true,
+                          "size": "Small",
+                          "color": "Light",
+                          "spacing": "None"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "98c6113f-3978-a45b-bde2-025984a83d8c",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "Input.Number",
+                          "id": "900d91df-0590-3281-31b8-7926ad27da7b",
+                          "placeholder": "Enter a number",
+                          "value": "182482"
+                        }
+                      ]
+                    }
+                  ],
+                  "padding": "Default"
+                },
+                {
+                  "type": "ColumnSet",
+                  "id": "931b7261-7195-a5aa-973e-9b7f868079f6",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "d50ecb0a-fa30-4c02-d585-df1ae0ad8e1d",
+                      "padding": {
+                        "top": "Small",
+                        "bottom": "None",
+                        "left": "None",
+                        "right": "None"
+                      },
+                      "width": "auto",
+                      "items": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "1d1fa85b-bd64-3da7-8809-9207a67209af",
+                          "title": " ",
+                          "value": "false",
+                          "wrap": false
+                        }
+                      ],
+                      "spacing": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "b2faf6bf-8011-f59b-1d54-78ce0b8db3bd",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "206dcfd6-f08e-4c41-01d3-80f4224ea57b",
+                          "text": "73636822",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "ad0ed695-88ef-db02-71b6-2aacb2a0c186",
+                          "text": "287372812",
+                          "wrap": true,
+                          "size": "Small",
+                          "color": "Light",
+                          "spacing": "None"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "bec0075e-1e3f-0361-ff8b-5007aa98c733",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "448bd03b-ffa5-99cb-47fc-7a674ce90d64",
+                          "text": "$38,822",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "9759c13d-5ff2-d250-9aa2-feeaddc86f08",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "e3ac5cc9-c501-7a96-2a3f-5da1d2ab7dd1",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "ccb8ba02-6ae9-2a5b-99f9-dc4541d4da4e",
+                          "text": "20 Days",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "fda27ee2-999f-3cae-7d6d-ee5e393bdaa2",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "87fc0f98-745b-599d-9a69-954d5d85fd84",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "Input.Number",
+                          "id": "f7e7da37-b3f6-ba58-00b9-e53327cacf28",
+                          "value": "38822"
+                        }
+                      ]
+                    }
+                  ],
+                  "padding": "Default"
+                },
+                {
+                  "type": "ColumnSet",
+                  "id": "318b1791-2bd4-de3c-d981-845d47cf2130",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "e410ac49-0d00-4d78-6f09-bddaad3ca648",
+                      "padding": {
+                        "top": "Small",
+                        "bottom": "None",
+                        "left": "None",
+                        "right": "None"
+                      },
+                      "width": "auto",
+                      "items": [
+                        {
+                          "type": "Input.Toggle",
+                          "id": "97ba98be-321c-e7b5-1d39-100afa6eeb96",
+                          "title": " ",
+                          "value": "false",
+                          "wrap": false
+                        }
+                      ],
+                      "spacing": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "14c8df7c-0fdb-1500-81b9-13c70de8f33c",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "d9a8337f-073c-7a22-6650-bcbddca83649",
+                          "text": "12333828",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "3d7c20c7-68e4-449c-ee03-fa10877e4d5d",
+                          "text": "287372812",
+                          "wrap": true,
+                          "size": "Small",
+                          "color": "Light",
+                          "spacing": "None"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "5cdb74f4-4561-e1a2-80d9-fa81dcee2228",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "350a7970-8750-c34e-9b41-d3ed8b6821a7",
+                          "text": "$182,482",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "6c032a4f-f7d0-cff7-a048-8063b4575618",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "33114bee-6c18-e603-7d6e-282e7916c488",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "2317343b-38e2-c70c-8e7a-53aa9a65105a",
+                          "text": "6 Days",
+                          "wrap": true
+                        },
+                        {
+                          "type": "TextBlock",
+                          "id": "4c8358c5-2ab2-89f1-6300-5ac1d14d3d32",
+                          "text": "Open Amount",
+                          "wrap": true,
+                          "spacing": "None",
+                          "size": "Small",
+                          "color": "Light"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "Column",
+                      "id": "1f7e3817-fa2f-b71f-809e-2c9227f032f0",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "Input.Number",
+                          "id": "4929c08a-62ca-7919-4bcd-ac46ff16d40d",
+                          "placeholder": "Enter a number",
+                          "value": "182482"
+                        }
+                      ]
+                    }
+                  ],
+                  "padding": "Default"
+                },
+                {
+                  "type": "ActionSet",
+                  "id": "f451ba03-6d50-384c-55f4-9e28b7f7545f",
+                  "actions": [
+                    {
+                      "type": "Action.Http",
+                      "id": "2f577ed7-dd98-7085-0bf7-b5a55976cd4f",
+                      "title": "Save",
+                      "method": "POST",
+                      "url": "https://run.mocky.io/v3/7a25a48d-73f5-449b-bc8f-2496eb18ad22",
+                      "body": "{Member1: {{Select1.value}}, Member2: {{Select2.value}},\nMember3: {{Select3.value}}}",
+                      "isPrimary": true,
+                      "style": "positive"
+                    },
+                    {
+                      "type": "Action.Http",
+                      "id": "a9c414e8-1967-3d0f-e2f2-ea33bab767eb",
+                      "title": "Cancel",
+                      "method": "POST",
+                      "url": "https://run.mocky.io/v3/7a25a48d-73f5-449b-bc8f-2496eb18ad22",
+                      "body": "{Member1: {{Select1.value}}, Member2: {{Select2.value}},\nMember3: {{Select3.value}}}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "separator": true
+        }
+      ],
+      "separator": true
+    }
+  ],
+  "padding": "None",
+  "@type": "AdaptiveCard",
+  "@context": "http://schema.org/extensions"
+}

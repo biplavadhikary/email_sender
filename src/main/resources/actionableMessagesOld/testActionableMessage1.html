@@ -1,0 +1,295 @@
+<html>
+<head>
+<script type="application/adaptivecard+json">
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+	"originator": "54e0dd71-0a71-4e30-a350-57b38f814d25",
+    "version": "1.0",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "id": "1ede2aba-61b9-faa0-9895-9ed0c26b2e6f",
+            "columns": [
+                {
+                    "type": "Column",
+                    "id": "e5756242-0963-37a2-7cb4-4397886d60bb",
+                    "padding": "None",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "id": "20f3833e-0435-5c87-fad1-b528e0046fb6",
+                            "text": "Company Name",
+                            "wrap": true
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                },
+                {
+                    "type": "Column",
+                    "id": "74215a26-fa8b-e549-cced-7f99fd34a661",
+                    "padding": "None",
+                    "width": "auto",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "id": "795047e2-e63e-6e14-07ba-5a3e13323dff",
+                            "url": "https://amdesigner.azurewebsites.net/samples/assets/PlaceHolder_Person.png",
+                            "size": "Small"
+                        }
+                    ],
+                    "horizontalAlignment": "Right"
+                }
+            ],
+            "padding": {
+                "top": "Small",
+                "bottom": "Small",
+                "left": "Default",
+                "right": "Small"
+            },
+            "style": "emphasis"
+        },
+        {
+            "type": "Container",
+            "id": "fbcee869-2754-287d-bb37-145a4ccd750b",
+            "padding": "Default",
+            "spacing": "None",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "id": "44906797-222f-9fe2-0b7a-e3ee21c6e380",
+                    "text": "[#83] Calls are getting dropped unexpectedly",
+                    "wrap": true,
+                    "weight": "Bolder",
+                    "size": "Large"
+                },
+                {
+                    "type": "TextBlock",
+                    "id": "f7abdf1a-3cce-2159-28ef-f2f362ec937e",
+                    "text": "We have this ongoing issue for the last one week. Outgoing calls from our account sometime get dropped unexpectedly. We need a quick resolution!",
+                    "wrap": true
+                },
+                {
+                    "type": "ActionSet",
+                    "id": "c8a5ba7e-7ec6-53ae-79da-0cfb952a527e",
+                    "actions": [
+                        {
+                            "type": "Action.ShowCard",
+                            "id": "c5884df0-9c4d-aef4-9bf2-0ac49d064f75",
+                            "title": "Change status",
+                            "card": {
+                                "type": "AdaptiveCard",
+                                "padding": "Default",
+                                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                                "body": [
+                                    {
+                                        "type": "Container",
+                                        "id": "c50c0c98-4cc1-6ff6-04b8-889577aaec86",
+                                        "padding": "None",
+                                        "items": [
+                                            {
+                                                "type": "Input.ChoiceSet",
+                                                "id": "ChangeStatus",
+                                                "placeholder": "Select an option",
+                                                "label": "Select an option to change status. Please select an item in the list",
+                                                "choices": [
+                                                    {
+                                                        "title": "Open",
+                                                        "value": "Open"
+                                                    },
+                                                    {
+                                                        "title": "Close",
+                                                        "value": "Close"
+                                                    }
+                                                ],
+                                                "isRequired": true
+                                            },
+                                            {
+                                                "type": "ActionSet",
+                                                "id": "ff6a8953-50c0-bf33-9d01-2316bc1ff50f",
+                                                "actions": [
+                                                    {
+                                                        "type": "Action.Http",
+                                                        "id": "17cf96b1-6455-a959-f88c-e301106c9c01",
+                                                        "title": "Submit",
+                                                        "url": "https://falcon-fit32.highradius.com",
+                                                        "method": "POST",
+                                                        "body": "{ChangeStatus:{{ChangeStatus.value}}}"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "isPrimary": true,
+                            "style": "positive"
+                        },
+                        {
+                            "type": "Action.ShowCard",
+                            "id": "6698711a-d6d4-e3a1-9f8b-1042852d0b25",
+                            "title": "Set priority",
+                            "card": {
+                                "type": "AdaptiveCard",
+                                "padding": "Default",
+                                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                                "body": [
+                                    {
+                                        "type": "Container",
+                                        "id": "6ba7238e-025b-e060-cf41-b4732848967b",
+                                        "padding": "None",
+                                        "items": [
+                                            {
+                                                "type": "Input.ChoiceSet",
+                                                "id": "Priority",
+                                                "placeholder": "Select a Priority",
+                                                "label": "Select a Priority for the task.",
+                                                "choices": [
+                                                    {
+                                                        "title": "Low",
+                                                        "value": "Low"
+                                                    },
+                                                    {
+                                                        "title": "Medium",
+                                                        "value": "Medium"
+                                                    },
+                                                    {
+                                                        "title": "High",
+                                                        "value": "High"
+                                                    },
+                                                    {
+                                                        "title": "Urgent",
+                                                        "value": "Urgent"
+                                                    }
+                                                ],
+                                                "style": "expanded",
+                                                "isRequired": true
+                                            },
+                                            {
+                                                "type": "ActionSet",
+                                                "id": "827ea28d-3d41-91c6-cf84-30b74244afe8",
+                                                "actions": [
+                                                    {
+                                                        "type": "Action.Http",
+                                                        "id": "d499a757-ee04-ee57-ef75-4e3f01c536d1",
+                                                        "title": "Submit",
+                                                        "method": "POST",
+                                                        "url": "https://falcon-fit32.highradius.com",
+                                                        "body": "{Priority: {{Priority.value}}}"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "Action.ShowCard",
+                            "id": "f8541cdd-a532-3b7f-fca8-713b74529057",
+                            "title": "Choose an assignee",
+                            "card": {
+                                "type": "AdaptiveCard",
+                                "padding": "Default",
+                                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                                "body": [
+                                    {
+                                        "type": "Container",
+                                        "id": "d2a2f235-2cf2-90c1-dab4-4a28dbea74d8",
+                                        "padding": "None",
+                                        "items": [
+                                            {
+                                                "type": "Input.ChoiceSet",
+                                                "id": "Assignee",
+                                                "placeholder": "Choose an assignee",
+                                                "label": "Choose an assignee for the task.",
+                                                "choices": [
+                                                    {
+                                                        "title": "kat.larrson@contoso.com",
+                                                        "value": "kat.larrson@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "daisy.philip@contoso.com",
+                                                        "value": "daisy.philip@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "miguel.garcia@contoso.com",
+                                                        "value": "miguel.garcia@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "collin.ballinger@contoso.com",
+                                                        "value": "collin.ballinger@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "elvia.atkins@contoso.com",
+                                                        "value": "elvia.atkins@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "lydia.bauer@contoso.com",
+                                                        "value": "lydia.bauer@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "henry.brill@contoso.com",
+                                                        "value": "henry.brill@contoso.com"
+                                                    },
+                                                    {
+                                                        "title": "mona.kane@contoso.com",
+                                                        "value": "mona.kane@contoso.com"
+                                                    }
+                                                ],
+                                                "style": "expanded",
+                                                "isRequired": true
+                                            },
+                                            {
+                                                "type": "ActionSet",
+                                                "actions": [
+                                                    {
+                                                        "type": "Action.Http",
+                                                        "id": "124e2030-8e95-2a1f-11f5-0da852070b0a",
+                                                        "title": "Submit",
+                                                        "method": "POST",
+                                                        "url": "https://falcon-fit32.highradius.com",
+                                                        "body": "{Assignee:{{Assignee.value}}}"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "77102c5d-fde2-e573-4ea5-66022d646d64",
+            "padding": {
+                "top": "Small",
+                "bottom": "Small",
+                "left": "Small",
+                "right": "Default"
+            },
+            "spacing": "None",
+            "separator": true,
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "id": "42654e7e-cece-b419-867a-3e3ef4076870",
+                    "text": "[View in portal](https://amdesigner.azurewebsites.net)",
+                    "wrap": true,
+                    "color": "Accent",
+                    "horizontalAlignment": "Right"
+                }
+            ],
+            "horizontalAlignment": "Right"
+        }
+    ],
+    "padding": "None"
+}
+</script>
+</head>
+<body>This is body</body>
+</html>

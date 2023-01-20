@@ -7,6 +7,7 @@ import javax.mail.internet.MimeMultipart;
 
 import com.azure.identity.ClientSecretCredential;
 import com.azure.identity.ClientSecretCredentialBuilder;
+import com.example.util.FileUtil;
 import com.microsoft.graph.authentication.IAuthenticationProvider;
 import com.microsoft.graph.authentication.TokenCredentialAuthProvider;
 import com.microsoft.graph.http.CustomRequest;
@@ -14,29 +15,35 @@ import com.microsoft.graph.models.*;
 import com.microsoft.graph.options.HeaderOption;
 import com.microsoft.graph.requests.GraphServiceClient;
 import com.microsoft.graph.requests.UserSendMailRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
 @Component
-public class O365MailSender implements IMailSender {
-    private static Logger LOGGER = LoggerFactory.getLogger(O365MailSender.class);
+public class O365MailSenderV2 implements IMailSender {
+    private static Logger LOGGER = LoggerFactory.getLogger(O365MailSenderV2.class);
 
     public static boolean isMIME = false;
     public static boolean isMIMEMultipart = true;
+    public static boolean isSuccessScenario = true;
     public static SimpleDateFormat SDF = new SimpleDateFormat("yyyyMMddHHmmss");
+    public static String actionableMessageBodyFilePathSuccess = "actionableMessages/initialEmail.html";
+    public static String actionableMessageBodyFilePathFail = "actionableMessagesOld/testActionableMessage2_fail.html";
+    public static String ampBodyFilePath = "actionableMessagesOld/testAMP1.html";
 
     @Autowired
     private org.springframework.mail.javamail.JavaMailSender javaMailSender;
     private IAuthenticationProvider provider;
-    private GraphServiceClient client;
+    private GraphServiceClient<?> client;
 
     public void initializeProvider() {
         String clientId = "";
@@ -56,7 +63,7 @@ public class O365MailSender implements IMailSender {
     }
 
     public void buildClient() {
-        GraphServiceClient client = GraphServiceClient
+        GraphServiceClient<?> client = GraphServiceClient
                 .builder()
                 .authenticationProvider(this.provider)
                 .buildClient();
@@ -64,21 +71,24 @@ public class O365MailSender implements IMailSender {
         this.client = client;
     }
 
-    public O365MailSender() {
+    public O365MailSenderV2() {
         LOGGER.info("Constructor");
         this.initializeProvider();
         this.buildClient();
     }
 
-    public Message buildMessage(String from, String to, String cc, String subject, String body) {
+    public Message buildMessage(String from, String to, String cc, String subject, String body) throws IOException {
         Message message = new Message();
 
         message.id = UUID.randomUUID().toString() + SDF.format(new Timestamp(System.currentTimeMillis()));
-        message.subject = subject;
+        message.subject = "[2.0] Through GRAPH SDK - " + (isSuccessScenario? " SUCCESS SCENARIO " : " FAIL SCENARIO ") + subject;
 
         message.body = new ItemBody();
-        message.body.contentType = BodyType.TEXT;
-        message.body.content = body;
+        message.body.contentType = BodyType.HTML;
+
+        String bodyContent = FileUtil.readAsStringFromFile(isSuccessScenario? actionableMessageBodyFilePathSuccess : actionableMessageBodyFilePathFail, true);
+        LOGGER.info("actionableBody - " + bodyContent);
+        message.body.content = bodyContent;
 
         message.from = new Recipient();
         message.from.emailAddress = new EmailAddress();
@@ -105,10 +115,10 @@ public class O365MailSender implements IMailSender {
             Message message = this.buildMessage(from, to, cc, subject, body);
             UserSendMailRequest sendMailRequest = client.users(from).sendMail(
                     UserSendMailParameterSet
-                    .newBuilder()
-                    .withMessage(message)
-                    .withSaveToSentItems(true)
-                    .build()
+                            .newBuilder()
+                            .withMessage(message)
+                            .withSaveToSentItems(true)
+                            .build()
             ).buildRequest();
 
             LOGGER.info(String.format("Sending the email as %s", from));
@@ -128,7 +138,7 @@ public class O365MailSender implements IMailSender {
         return responseMap;
     }
 
-    public MimeMessage getMultiPartMimeMessage(String from, String to, String cc, String subject, String body) throws MessagingException {
+    public MimeMessage getMultiPartMimeMessage(String from, String to, String cc, String subject, String body) throws MessagingException, IOException {
         LOGGER.info("Using Multipart MIME");
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 
@@ -143,25 +153,8 @@ public class O365MailSender implements IMailSender {
         htmlPart.setContent(String.format("HTML Part - " + body), "text/html; charset=UTF-8");
 
         MimeBodyPart ampPart = new MimeBodyPart();
-        String ampBody = "<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "  <head>\n" +
-                "    <meta charset=\"utf-8\" />\n" +
-                "    <title>My AMP Page</title>\n" +
-                "    <link rel=\"canonical\" href=\"self.html\" />\n" +
-                "    <meta name=\"viewport\" content=\"width=device-width\" />\n" +
-                "    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n" +
-                "    <script async src=\"https://cdn.ampproject.org/v0.js\"></script>\n" +
-                "    <style amp-custom>\n" +
-                "      h1 {\n" +
-                "        margin: 1rem;\n" +
-                "      }\n" +
-                "    </style>\n" +
-                "  </head>\n" +
-                "  <body>\n" +
-                "    <h1>AMP Part - Hello!</h1>\n" +
-                "  </body>\n" +
-                "</html>\n";
+        String ampBody = FileUtil.readAsStringFromFile(ampBodyFilePath, true);
+        LOGGER.info("ampBody - " + ampBody);
         ampPart.setContent(ampBody, "text/x-amp-html; charset=UTF-8");
 
         MimeMultipart mimeMultiPartAlt = new MimeMultipart("alternative");
@@ -206,7 +199,7 @@ public class O365MailSender implements IMailSender {
             String encodedMIME = Base64.getMimeEncoder().encodeToString(byteArrayOutputStream.toByteArray());
 
             String requestUrl = "https://graph.microsoft.com/v1.0/users/" + from + "/sendMail";
-            List<HeaderOption> requestOptions = List.of(
+            List<HeaderOption> requestOptions = Arrays.asList(
                     new HeaderOption("Content-Type", "text/plain")
 //                    new HeaderOption("MIME-Version", "1.0")
             );

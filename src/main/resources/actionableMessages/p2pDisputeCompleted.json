@@ -1,0 +1,526 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "originator": "848ef05c-dbfb-4534-a091-f92066f89760",
+  "hideOriginalBody": true,
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Container",
+      "id": "34eadec9-ac74-5c77-3e62-875a8b9c5f3c",
+      "padding": "Small",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "id": "fedae9ca-c2d5-5dd2-4a59-176681872822",
+          "columns": [
+            {
+              "type": "Column",
+              "id": "e6d9a897-f9e4-067b-52da-c9900c83e886",
+              "padding": "None",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "Image",
+                  "id": "0f1bd522-ef75-3f9f-14c4-4ef9e234721f",
+                  "url": "https://amdesigner.azurewebsites.net/samples/assets/PlaceHolder_Person.png",
+                  "size": "Small",
+                  "altText": "Contoso Group Avatar"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "id": "b48b0ab2-4c13-5b59-88eb-2fc97c943d39",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "id": "2d13ea41-2866-7130-44de-4a18d3093cf7",
+                  "text": "Email Template Header Name",
+                  "wrap": true,
+                  "size": "Medium",
+                  "color": "Dark",
+                  "weight": "Bolder"
+                },
+                {
+                  "type": "TextBlock",
+                  "id": "6451279c-1da7-af2d-85ed-e7632d4669ae",
+                  "text": "Sent by Lara Goldman",
+                  "wrap": true,
+                  "spacing": "Small",
+                  "isSubtle": true,
+                  "color": "Light",
+                  "weight": "Lighter"
+                }
+              ],
+              "verticalContentAlignment": "Center"
+            }
+          ],
+          "padding": "None"
+        }
+      ],
+      "spacing": "None",
+      "style": "emphasis"
+    },
+    {
+      "type": "Container",
+      "id": "f865bbb4-a2ad-4b67-c6ee-d8a247b881bf",
+      "padding": "Medium",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "id": "bbaccc49-8250-ff81-abad-e06df871d93f",
+          "columns": [
+            {
+              "type": "Column",
+              "id": "6a70237a-768c-b130-7279-705d2e7f5476",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "FactSet",
+                  "id": "2cc7fbaa-0c5e-4fb3-addc-cd046dbdf164",
+                  "facts": [
+                    {
+                      "title": "Open Amount",
+                      "value": "USD 24,000"
+                    }
+                  ],
+                  "separator": true
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "FactSet",
+                  "id": "98d99451-b418-f583-bea6-58c30783d154",
+                  "facts": [
+                    {
+                      "title": "No. of Invoices",
+                      "value": "898"
+                    }
+                  ],
+                  "separator": true
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "padding": "None",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "FactSet",
+                  "id": "440e9dde-7a4a-cdb1-b033-3b0d248bf716",
+                  "facts": [
+                    {
+                      "title": "Due Date : ",
+                      "value": "13 Mar,2022"
+                    }
+                  ],
+                  "separator": true
+                }
+              ]
+            }
+          ],
+          "padding": "None"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "id": "0bdaded9-7b2d-fb8b-c298-ac819fd31288",
+      "padding": "Default",
+      "spacing": "None",
+      "items": [
+        {
+          "type": "Container",
+          "id": "47295af6-a6b8-fd4f-f90f-018d01f8e130",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "P2P Created",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "P2P-Invoice-List",
+                  "P2P-ExpandDetails-Down-Wrapper",
+                  "P2P-ExpandDetails-Up-Wrapper"
+                ],
+                "id": "ExpandExpenseDetails",
+                "title": "Expand Expense Details"
+              },
+              "id": "P2P-Expansion-Header"
+            }
+          ],
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "id": "8924f212-090b-bd67-da0e-0e53b3986be1",
+          "padding": "Default",
+          "spacing": "None",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "Disputed Created",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "ExpenseDetailsWrapper",
+                  "Dispute-ExpandDetails-Down-Wrapper",
+                  "Dispute-Invoice-List",
+                  "Dispute-ExpandDetails-Up-Wrapper"
+                ],
+                "id": "ExpandExpenseDetailsI",
+                "title": "Expand Expense Details"
+              },
+              "id": "Dispute-Expansion-Header"
+            }
+          ],
+          "separator": true
+        },
+        {
+          "type": "Container",
+          "id": "43596f1d-d268-a1eb-16f1-1c463e1cbd35",
+          "padding": "Default",
+          "items": [
+            {
+              "type": "Container",
+              "spacing": "None",
+              "separator": true,
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "weight": "Bolder",
+                          "text": "Schedule Callback",
+                          "wrap": true,
+                          "spacing": "None"
+                        }
+                      ],
+                      "width": "stretch",
+                      "padding": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "ScheduleCallback-ExpandDetails-Down-Wrapper",
+                      "items": [
+                        {
+                          "type": "Image",
+                          "selectAction": {
+                            "type": "Action.ToggleVisibility",
+                            "id": "ExpandExpenseDetailsI",
+                            "title": "Expand Expense Details",
+                            "targetElements": [
+                              "Schedule-Callback-Details",
+                              {
+                                "elementId": "ScheduleCallback-ExpandDetails-Up-Wrapper",
+                                "isVisible": true
+                              },
+                              {
+                                "elementId": "ScheduleCallback-ExpandDetails-Down-Wrapper",
+                                "isVisible": false
+                              }
+                            ]
+                          },
+                          "url": "https://amdesigner.azurewebsites.net/samples/assets/Down.png",
+                          "width": "20px",
+                          "altText": "Expand",
+                          "id": "ScheduleCallback-ExpandDetails-Down",
+                          "height": "20px"
+                        }
+                      ],
+                      "width": "auto",
+                      "padding": "None"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "ScheduleCallback-ExpandDetails-Up-Wrapper",
+                      "isVisible": false,
+                      "items": [
+                        {
+                          "type": "Image",
+                          "selectAction": {
+                            "type": "Action.ToggleVisibility",
+                            "id": "CollapseExpenseDetails",
+                            "title": "Collapse Expense Details",
+                            "targetElements": [
+                              {
+                                "elementId": "ScheduleCallback-ExpandDetails-Down-Wrapper",
+                                "isVisible": true
+                              },
+                              "Schedule-Callback-Details",
+                              {
+                                "elementId": "ScheduleCallback-ExpandDetails-Up-Wrapper",
+                                "isVisible": false
+                              }
+                            ]
+                          },
+                          "url": "https://amdesigner.azurewebsites.net/samples/assets/Up.png",
+                          "width": "20px",
+                          "altText": "Collapse",
+                          "id": "ScheduleCallback-ExpandDetails-Up",
+                          "height": "20px"
+                        }
+                      ],
+                      "width": "auto",
+                      "padding": "None"
+                    }
+                  ],
+                  "padding": "None"
+                }
+              ],
+              "padding": "Default",
+              "style": "emphasis",
+              "selectAction": {
+                "type": "Action.ToggleVisibility",
+                "targetElements": [
+                  "Schedule-Callback-Details",
+                  "ScheduleCallback-ExpandDetails-Down-Wrapper",
+                  "ScheduleCallback-ExpandDetails-Up-Wrapper"
+                ],
+                "id": "Schedule-Callback-Header-inn",
+                "title": "Schedule Callback Details"
+              },
+              "id": "Schedule-Callback-Header"
+            },
+            {
+              "type": "Container",
+              "id": "Schedule-Callback-Details",
+              "padding": "None",
+              "items": [
+                {
+                  "type": "ColumnSet",
+                  "id": "0b665b11-da8a-c1d8-b0b8-4ca741bb7dc3",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "b3f17ddd-c3e5-4b3b-0ed4-9f77740862b3",
+                      "padding": "None",
+                      "width": "auto",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "60c17c8c-bbba-d9d6-9500-7a76da72b6f3",
+                          "text": "Schedule Call to",
+                          "wrap": true,
+                          "color": "Light"
+                        }
+                      ],
+                      "verticalContentAlignment": "Center"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "631a61ba-ae6c-10b6-3ec8-de204bbb9f6a",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "Input.ChoiceSet",
+                          "id": "countrySelectInput",
+                          "placeholder": "Country Code",
+                          "label": "You need to select country code",
+                          "choices": [
+                            {
+                              "title": "India (+91)",
+                              "value": "1"
+                            },
+                            {
+                              "title": "US (+1)",
+                              "value": "2"
+                            },
+                            {
+                              "title": "Canada (+2)",
+                              "value": "3"
+                            },
+                            {
+                              "title": "China (+3)",
+                              "value": "4"
+                            },
+                            {
+                              "title": "UK (+4)",
+                              "value": "5"
+                            }
+                          ],
+                          "isRequired": true
+                        }
+                      ],
+                      "verticalContentAlignment": "Center",
+                      "horizontalAlignment": "Center"
+                    },
+                    {
+                      "type": "Column",
+                      "items": [
+                        {
+                          "type": "Input.Number",
+                          "id": "contactNumberInput",
+                          "placeholder": "Contact No.",
+                          "isRequired": true,
+                          "min": "100000000",
+                          "max": "999999999"
+                        }
+                      ],
+                      "padding": "None",
+                      "width": "stretch",
+                      "verticalContentAlignment": "Center"
+                    }
+                  ],
+                  "padding": {
+                    "top": "Medium",
+                    "bottom": "None",
+                    "left": "Medium",
+                    "right": "Medium"
+                  }
+                },
+                {
+                  "type": "ColumnSet",
+                  "id": "fcf8bb65-6da2-62e8-9d75-74f9bcc311c0",
+                  "columns": [
+                    {
+                      "type": "Column",
+                      "id": "8dc2306d-f299-7f9e-6ec4-eca0e3a9cbbd",
+                      "padding": "None",
+                      "width": "auto",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "TextBlock",
+                          "id": "458b082d-28af-3fc7-0e36-957bf646597e",
+                          "text": "with name",
+                          "wrap": true,
+                          "color": "Light"
+                        }
+                      ],
+                      "verticalContentAlignment": "Center"
+                    },
+                    {
+                      "type": "Column",
+                      "id": "e188537f-c1d4-518c-47f8-d31587469e27",
+                      "padding": "None",
+                      "width": "stretch",
+                      "spacing": "Small",
+                      "items": [
+                        {
+                          "type": "Input.Text",
+                          "id": "userNameInput",
+                          "placeholder": "Name",
+                          "isRequired": true
+                        }
+                      ],
+                      "horizontalAlignment": "Center",
+                      "verticalContentAlignment": "Center"
+                    }
+                  ],
+                  "padding": {
+                    "top": "None",
+                    "bottom": "Medium",
+                    "left": "Medium",
+                    "right": "Medium"
+                  }
+                },
+                {
+                  "type": "ActionSet",
+                  "id": "bb5c5055-91ec-41f5-96db-317019a6909c",
+                  "actions": [
+                    {
+                      "type": "Action.Http",
+                      "id": "scheduleCallbackSubmit",
+                      "title": "Schedule",
+                      "tooltip": "Click here to schedule the callback",
+                      "method": "POST",
+                      "url": "https://www.google.com/",
+                      "body": "{\n\t\"countryCode\": \"{{countrySelectInput.value}}\", \n\t\"contactNumber\": \"{{contactNumberInput.value}}\",\n\t\"userName\": \"{{userNameInput.value}}\"\n}",
+                      "isPrimary": true,
+                      "style": "positive"
+                    },
+                    {
+                      "type": "Action.ToggleVisibility",
+                      "id": "scheduleCallbackCancelBtn",
+                      "title": "Cancel",
+                      "targetElements": [
+                        "Schedule-Callback-Details"
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "isVisible": false
+            }
+          ],
+          "spacing": "None",
+          "separator": true
+        }
+      ],
+      "separator": true
+    }
+  ],
+  "padding": "None",
+  "@type": "AdaptiveCard",
+  "@context": "http://schema.org/extensions"
+}
